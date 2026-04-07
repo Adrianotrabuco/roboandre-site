@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Chat-Robo-Andre | Escala Conversacional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h2 class="logo">Chat<span>Robo</span>Andre</h2>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#features">Recursos</a></li>
+                <li><a href="#stats">Resultados</a></li>
+                <li><a href="#pricing">Planos</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="https://wa.me/5519997418514" class="btn-nav" target="_blank">Falar com Especialista</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="badge-glow">💎 A Melhor IA Conversacional do Brasil</span>
+            <h1>Sua empresa vendendo <span>24h por dia</span> no automático.</h1>
+            <p>A tecnologia mais avançada para que você nunca mais perca um lead por demora no atendimento.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/5519997418514" class="primary-btn" target="_blank">TESTAR GRÁTIS AGORA</a>
+            </div>
+            <div class="hero-mockup">
+                <img src="images/hero.png" alt="Dashboard" class="img-main">
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Recursos</span>
+                <h2>Automação inteligente que vende por você</h2>
+            </div>
+            <div class="features-grid">
+                <div class="f-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Atendimento 24h</h3>
+                    <p>Seu cliente recebe resposta imediata.</p>
+                </div>
+                <div class="f-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>IA Inteligente</h3>
+                    <p>Conversas naturais que aumentam vendas.</p>
+                </div>
+                <div class="f-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Integrado</h3>
+                    <p>Automatize seu atendimento facilmente.</p>
+                </div>
+                <div class="f-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Mais Vendas</h3>
+                    <p>Recupere clientes automaticamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="grid-stats">
+                <div class="stat-box">
+                    <div class="stat-number" data-target="120">0</div>
+                    <p>Empresas Ativas</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="800000">0</div>
+                    <p>Conversas Geradas</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="15000">0</div>
+                    <p>Vendas Recuperadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-module">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Preços</span>
+                <h2>Escolha o plano ideal</h2>
+            </div>
+            <div class="plans-grid">
+                <div class="p-card">
+                    <h3>Starter</h3>
+                    <div class="p-price">R$ 299<span>/mês</span></div>
+                    <ul class="p-features">
+                        <li><i class="fas fa-check"></i> 1 Conexão</li>
+                        <li><i class="fas fa-check"></i> Fluxos Ilimitados</li>
+                    </ul>
+                    <a href="#" class="primary-btn">Assinar</a>
+                </div>
+                <div class="p-card featured">
+                    <div class="best-value">POPULAR</div>
+                    <h3>Profissional</h3>
+                    <div class="p-price">R$ 499<span>/mês</span></div>
+                    <ul class="p-features">
+                        <li><i class="fas fa-check"></i> 3 Conexões</li>
+                        <li><i class="fas fa-check"></i> IA (GPT-4)</li>
+                    </ul>
+                    <a href="#" class="primary-btn">Assinar</a>
+                </div>
+                <div class="p-card">
+                    <h3>Business</h3>
+                    <div class="p-price">R$ 799<span>/mês</span></div>
+                    <ul class="p-features">
+                        <li><i class="fas fa-check"></i> 10 Conexões</li>
+                        <li><i class="fas fa-check"></i> Suporte VIP</li>
+                    </ul>
+                    <a href="#" class="primary-btn">Assinar</a>
+                </div>
+                <div class="p-card">
+                    <h3>Enterprise</h3>
+                    <div class="p-price">Custom</div>
+                    <ul class="p-features">
+                        <li><i class="fas fa-check"></i> Ilimitado</li>
+                        <li><i class="fas fa-check"></i> Whitelabel</li>
+                    </ul>
+                    <a href="#" class="primary-btn">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fale com a gente</h2>
+            </div>
+            <form class="contact-form" onsubmit="enviarMensagem(event)">
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Seu e-mail" required>
+                <textarea placeholder="Sua mensagem" required></textarea>
+                <button type="submit" class="primary-btn">Enviar Mensagem</button>
+            </form>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +55 19 99741-8514</p>
+                <p><i class="fas fa-envelope"></i> contato@roboandre.com.br</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5519997418514" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
