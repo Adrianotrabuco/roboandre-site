@@ -1,12 +1,18 @@
-// Toggle Menu Mobile
+// Menu mobile
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
-if(hamburger) {
+if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
-} // <--- Essa chave estava faltando!
+
+    navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+}
 
 // Função para enviar e-mail via formulário
 function enviarMensagem(e) {
@@ -17,7 +23,7 @@ function enviarMensagem(e) {
     const emailUsuario = e.target.querySelector('input[type="email"]').value;
     const msg = e.target.querySelector('textarea').value;
     
-    // Configurações do seu e-mail
+    // Configurações do e-mail de contato
     const meuEmail = "contato@roboandre.com.br";
     const assunto = encodeURIComponent(`Novo Contato Site: ${nome}`);
     const corpo = encodeURIComponent(`Nome: ${nome}\nE-mail do remetente: ${emailUsuario}\n\nMensagem:\n${msg}`);
@@ -26,7 +32,7 @@ function enviarMensagem(e) {
     window.location.href = `mailto:${meuEmail}?subject=${assunto}&body=${corpo}`;
 }
 
-// Animação de Contagem (Stats)
+// Animação de contagem dos resultados
 const counters = document.querySelectorAll('.stat-number');
 const runCounters = () => {
     counters.forEach(c => {
@@ -35,10 +41,10 @@ const runCounters = () => {
             const cur = +c.innerText.replace(/\D/g,'');
             const step = target / 100;
             if(cur < target) {
-                c.innerText = Math.ceil(cur + step).toLocaleString();
+                c.innerText = Math.ceil(cur + step).toLocaleString('pt-BR');
                 setTimeout(update, 20);
             } else {
-                c.innerText = target.toLocaleString();
+                c.innerText = target.toLocaleString('pt-BR');
             }
         };
         update();
@@ -46,15 +52,18 @@ const runCounters = () => {
 };
 
 // Ativa a contagem quando chegar na seção com scroll
-const obs = new IntersectionObserver((entries) => {
-    if(entries[0].isIntersecting) {
-        runCounters();
-        obs.unobserve(entries[0].target); // Faz a animação rodar apenas uma vez
-    }
-}, { threshold: 0.5 });
+const statsSection = document.querySelector('.grid-stats');
+if (statsSection && 'IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) {
+            runCounters();
+            obs.unobserve(entries[0].target);
+        }
+    }, { threshold: 0.5 });
 
-if(document.querySelector('.grid-stats')) {
-    obs.observe(document.querySelector('.grid-stats'));
+    obs.observe(statsSection);
+} else if (statsSection) {
+    runCounters();
 }
 
 // Navbar efeito de scroll (Opcional para dar um charme)
